@@ -79,4 +79,7 @@ public class OrdersService implements Serializable {
                 .filter(i -> i.getOrderPrice() > 1000)
                 .forEach(i -> i.setPrice(i.getOrderPrice() * 0.95));
     }
+    private void top3() {
+        System.out.println();
+    }
 }
