@@ -47,7 +47,7 @@ public class Manager {
                 .collect(Collectors.toList());
         return (List<Product>) products;
     }
-
+    
     public Order createOrder() {
         Order order = new Order(null,0,null);
         orders.add(order);

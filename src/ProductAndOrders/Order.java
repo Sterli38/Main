@@ -2,7 +2,6 @@ package ProductAndOrders;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -51,6 +50,14 @@ public class Order implements Serializable {
    public void add(Product product) {
       products.add(product);
    }
+
+   public Product getProduct(int id) {
+    return products.stream()
+            .filter(i -> i.getId() == id)
+            .findFirst().get();
+   }
+
+
 
    public void remove(int id) {
 //       products = products.stream()
