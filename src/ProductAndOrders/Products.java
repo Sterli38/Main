@@ -50,7 +50,6 @@ public class Products implements Serializable {
 //        Product product20 = new Product("Продукты", "Кетчуп", 144);
 //        products.add(product20);
 
-
     public void add(Product product) {
         products.add(product);
     }
@@ -81,28 +80,6 @@ public class Products implements Serializable {
     public String toString() {
         return "" + products;
     }
-
-//    public List<Product> task1() {
-//        List<Product> task1 = products.stream()
-//                .filter(i -> "Продукты".equals(i.getProductType()))
-//                .filter(i -> i.getPrice() > 100)
-//                .collect(Collectors.toList());
-//        return task1;
-//    }
-//
-//    private List<Product> task2() {
-//            products.stream()
-//                    .filter(i -> i.getProductType().equals("Товары для дома"))
-//                    .forEach(i -> i.setPrice(i.getPrice() * 0.9));
-//            return products;
-//        }
-//
-//    public List<Product> task3() {
-//        products.stream()
-//                .sorted(Comparator.comparing(Product::getName))
-//                .collect(Collectors.toList());
-//        return products;
-//    }
 
     public void addAll(List<Product> products) {
         this.products.addAll(products);

@@ -7,18 +7,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Manager {
+    OrdersService ordersService = new OrdersService();
     private Products products = new Products();
-    private final List<Order> orders = new ArrayList<>();
-
+    private final List<Order> orders = ordersService.getOrders();
     public Manager() {
         read();
     }
     private void read() {
         List<Product> products = new ArrayList<>();
-        try (BufferedReader ois = new BufferedReader(new FileReader("C:\\Users\\lenya\\Desktop\\idie\\Main\\src\\ProductAndOrders\\Products.txt"))) {
+        try (BufferedReader ois = new BufferedReader(new FileReader("C:\\Users\\lenya\\IdeaProjects\\Main\\src\\ProductAndOrders\\Products.txt"))) {
             String string = ois.readLine();
             String[] array = string.split(";");
-            products.add(new Product(array[4],array[5],Integer.parseInt(array[6]),Integer.parseInt(array[7])));
+            products.add(new Product(array[3],array[4],Integer.parseInt(array[5]),Integer.parseInt(array[6])));
             this.products.addAll(products);
         } catch (IOException ex) {
 //            ex.printStackTrace();
@@ -26,7 +26,7 @@ public class Manager {
         }
     }
 
-    public List<Product> task1() {
+    public List<Product> priceOver100() {
         List<Product> task1 = products.getProducts().stream()
                 .filter(i -> "Продукты".equals(i.getProductType()))
                 .filter(i -> i.getPrice() > 100)
@@ -34,14 +34,14 @@ public class Manager {
         return task1;
     }
 
-    public List<Product> task2() {
+    public List<Product> sale() {
         products.getProducts().stream()
                 .filter(i -> i.getProductType().equals("Товары для дома"))
                 .forEach(i -> i.setPrice(i.getPrice() * 0.9));
         return (List<Product>) products;
     }
 
-    public List<Product> task3() {
+    public List<Product> AlphabeticalOrderByName() {
         products.getProducts().stream()
                 .sorted(Comparator.comparing(Product::getName))
                 .collect(Collectors.toList());
@@ -61,8 +61,13 @@ public class Manager {
     }
 
     public void addProduct(int productId, int orderId) {
-        Product product = products.getProduct(productId);
-        Order order = findOrderById(orderId);
-        order.add(product);
+        try {
+            Product product = products.getProduct(productId);
+            Order order = findOrderById(orderId);
+            order.add(product);
+            System.out.println("Заказ добавлен");
+        } catch (NullPointerException ex) {
+            System.out.println("Такого заказа или продукта нет");
+        }
     }
 }
