@@ -4,7 +4,6 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -72,11 +71,11 @@ public class OrdersService implements Serializable {
                 .collect(Collectors.toList());
     }
 
-//    public List<Order> getOrdersBetween(Date dateFrom, Date dateTill) {
-//        return orders.stream()
-//                .filter(i -> dateFrom.after(i.getOrderPaymentDay()) &&  i.getOrderPaymentDay().before(dateTill)) // Если дата начала после даты* и дата после даты конца
-//                .collect(Collectors.toList());
-//    }
+    public List<Order> getOrdersBetween(Date dateFrom, Date dateTill) {
+        return orders.stream()
+                .filter(i -> i.getOrderPaymentDay().after(dateFrom) &&  i.getOrderPaymentDay().before(dateTill))
+                .collect(Collectors.toList());
+    }
 
     private void sale() {
          orders.stream()
@@ -84,7 +83,24 @@ public class OrdersService implements Serializable {
                 .forEach(i -> i.setPrice(i.getOrderPrice() * 0.95));
     }
 
-//    private void top() {
-//
-//    }
+    public List<Map.Entry<Product, Integer>> top() {
+        Map<Product,Integer> map = new HashMap<>();
+        for(int i = 0; i < orders.size(); i++) {
+            List<Product> products = orders.get(i).getProducts();
+            for(int j = 0 ; j < products.size(); j++) {
+                Product product = products.get(j);
+                Integer count = map.get(product);
+                if(count == null) {
+                    map.put(product,1);
+                } else {
+                    map.put(product,count + 1);
+                }
+            }
+        }
+        List<Map.Entry<Product,Integer>> list = new ArrayList<>(map.entrySet());
+        list.sort((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
+        return list.stream()
+                .limit(3)
+                .collect(Collectors.toList());
+    }
 }

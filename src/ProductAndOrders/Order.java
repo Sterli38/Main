@@ -77,6 +77,10 @@ public class Order implements Serializable {
               .sum();
    }
 
+   public List<Product> getProducts() {
+      return products;
+   }
+
       public void sale() {
          products.forEach(i -> i.setPrice(i.getPrice() * 0.95));
    }
