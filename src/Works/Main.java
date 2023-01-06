@@ -1134,3 +1134,46 @@ import java.util.regex.*;
 //        System.out.println("До новых встреч!");
 //    }
 //}
+
+////            ************ Программа для проверки java на компьютере ***********************
+
+//               ****************************
+
+// Напишите программу на Java, чтобы проверить, установлена ли Java на вашем компьютере.
+
+//        System.out.println("\nJava Version: "+System.getProperty("java.version"));
+//        System.out.println("Java Runtime Version: "+System.getProperty("java.runtime.version"));
+//        System.out.println("Java Home: "+System.getProperty("java.home"));
+//        System.out.println("Java Vendor: "+System.getProperty("java.vendor"));
+//        System.out.println("Java Vendor URL: "+System.getProperty("java.vendor.url"));
+//        System.out.println("Java Class Path: "+System.getProperty("java.class.path")+"\n");  * //System.getProperty - возваращает системное свойство, указаное указаным ключом.
+
+//                     ********** Перевод из систем исчесления ***************
+
+// Напишите программу на Java для преобразования шестнадцатеричного числа в десятичное число. Перейти к редактору
+//Входные данные:
+//Введите шестнадцатеричное число: 25
+//Ожидаемый результат
+//
+// Эквивалентное десятичное число: 37
+
+//    int a = 25;
+//    String a1 = Integer.toString(a);
+//    int a2 = Integer.parseInt(a1,16);
+//    System.out.println(a2);
+
+//               *******************
+
+// Напишите программу на Java для преобразования шестнадцатеричного числа в двоичное число. Перейти к редактору
+//Входные данные:
+//Введите шестнадцатеричное число: 37
+//Ожидаемый результат
+//
+// Эквивалентный двоичный номер: 110111
+
+//    int a = 37;
+//    String a1 = Integer.toString(37);
+//    int a2 = Integer.parseInt(a1,16); // Получили десятичное число из 16-тиричного )
+//    int a3 = Integer.parseInt(Integer.toString(a2,2));// Получаем двоичное число из десятичного и сразу переводим в Int переменную
+//    System.out.println(a3);
+//
