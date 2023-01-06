@@ -1079,4 +1079,58 @@ import java.util.ArrayList;
 //                        System.out.println("Letter");
 //                }
 //        }
+
+import java.util.regex.*;
+
+//                                              **Регулярные выражения**
+//public class Main {
+//        public static void main(String[] args) {
+//                String s = "Ivanov Vasiliy, Russia, Moscow, Lenin street, 51, Flat 48," +
+//                        "email: vivanov@mail.ru, Postcode: AA99, Phone Number: +123456789;"
+//                        +"Petrova Mariy, Ukraine, Kiyev, Lomonosov street, 33, Flat 18," +
+//                        "email: masha@mail.ru, Postcode: UKR54, Phone Number: +987654321;"
+//                        +"Chuck Norris, USA, Hollywood, All stars street, 87, Flat 21," +
+//                        "email: chuck@gmail.com, Postcode: USA23, Phone Number: +136478952.";
+//
+//                Pattern pattern = Pattern.compile("Flat \\d+");
+//                Matcher matcher = pattern.matcher(s);
+//
+//                while(matcher.find()) {
+//                        System.out.println("Позиция " +matcher.start() + " : " + matcher.group());
+//                }
+//        }
+//
+//}
+//}
+
+//                                              ** Небольшая программаа для замены значения переменных** // просто круто выглядит по этому сохранил ))
+//public class Main {
+//
+//    public static void main(String[] args) throws InterruptedException {
+//        Scanner scanner = new Scanner(System.in);
+//        int a = 5;
+//        int b = 9;
+//
+//        System.out.println("Сейчас ваша переменна а = " + a);
+//        Thread.sleep(2000);
+//        System.out.println("Сейчас ваша переменная b = " + b);
+//        Thread.sleep(1500);
+//        System.out.println("Введите новую переменную a: ");
+//        a = scanner.nextInt();
+//        System.out.println("Сохранение...");
+//        Thread.sleep(2000);
+//        System.out.println("Введите новую переменную б: ");
+//        b = scanner.nextInt();
+//        System.out.println("Сохраняем...");
+//        Thread.sleep(2000);
+//        System.out.println("Подводим итоги :");
+//        Thread.sleep(3000);
+//        System.out.println();
+//        System.out.println("Теперь ваша переменая а = " + a);
+//        Thread.sleep(1000);
+//        System.out.println("Теперь ваша переменная б = " + b);
+//        System.out.println("-------------------------------------");
+//        Thread.sleep(1500);
+//        System.out.println("До новых встреч!");
+//    }
 //}
